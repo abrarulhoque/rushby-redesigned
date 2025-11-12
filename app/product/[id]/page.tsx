@@ -67,6 +67,7 @@ const PRODUCTS = {
     name: 'CZ P07/P09C Magwell',
     category: 'Magwells',
     price: 64.99,
+    originalPrice: undefined,
     rating: 5.0,
     reviews: 11,
     badge: 'Popular',
