@@ -42,177 +42,70 @@ export default function Footer() {
 
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-12">
-          {/* Brand Column */}
-          <div className="col-span-2 md:col-span-4 lg:col-span-1">
-            <Link href="/" className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden bg-white/5">
-                <img
-                  src="/images/logo.png"
-                  alt="Rushby Industries Logo"
-                  className="w-full h-full object-contain p-1"
-                />
-              </div>
-              <div>
-                <div className="text-lg font-bold text-white">RUSHBY</div>
-                <div className="text-xs text-zinc-500 -mt-1">INDUSTRIES</div>
-              </div>
-            </Link>
-            <p className="text-sm text-zinc-400 mb-4">
-              Precision-engineered CZ firearm accessories from Cape Town, South Africa.
-            </p>
-            <div className="flex gap-3">
-              <Link
-                href="https://facebook.com/rushbyindustries"
-                className="w-9 h-9 bg-zinc-900 border border-zinc-800 rounded-lg flex items-center justify-center hover:border-amber-600 hover:bg-zinc-800 transition-colors"
-              >
-                <Facebook className="w-4 h-4 text-zinc-400" />
-              </Link>
-              <Link
-                href="https://instagram.com/rushbyindustries"
-                className="w-9 h-9 bg-zinc-900 border border-zinc-800 rounded-lg flex items-center justify-center hover:border-amber-600 hover:bg-zinc-800 transition-colors"
-              >
-                <Instagram className="w-4 h-4 text-zinc-400" />
-              </Link>
-              <Link
-                href="https://youtube.com/channel/UCDgCnlBaiViGkX_e4pFIGRQ"
-                className="w-9 h-9 bg-zinc-900 border border-zinc-800 rounded-lg flex items-center justify-center hover:border-amber-600 hover:bg-zinc-800 transition-colors"
-              >
-                <Youtube className="w-4 h-4 text-zinc-400" />
-              </Link>
+        {/* Brand & Description */}
+        <div className="text-center mb-8">
+          <Link href="/" className="inline-flex items-center gap-3 mb-4">
+            <div className="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden bg-white/5">
+              <img
+                src="/images/logo.png"
+                alt="Rushby Industries Logo"
+                className="w-full h-full object-contain p-1"
+              />
             </div>
-          </div>
+            <div>
+              <div className="text-lg font-bold text-white">RUSHBY</div>
+              <div className="text-xs text-zinc-500 -mt-1">INDUSTRIES</div>
+            </div>
+          </Link>
+          <p className="text-sm text-zinc-400 max-w-2xl mx-auto">
+            Precision-engineered CZ firearm accessories from Cape Town, South Africa.
+          </p>
+        </div>
 
-          {/* Shop Column */}
-          <div>
-            <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">
-              Shop
-            </h4>
-            <ul className="space-y-3">
-              <li>
-                <Link href="/shop/triggers" className="text-zinc-400 hover:text-white text-sm transition-colors">
-                  Triggers
-                </Link>
-              </li>
-              <li>
-                <Link href="/shop/magwells" className="text-zinc-400 hover:text-white text-sm transition-colors">
-                  Magwells
-                </Link>
-              </li>
-              <li>
-                <Link href="/shop/springs" className="text-zinc-400 hover:text-white text-sm transition-colors">
-                  Spring Kits
-                </Link>
-              </li>
-              <li>
-                <Link href="/shop/performance" className="text-zinc-400 hover:text-white text-sm transition-colors">
-                  Performance Upgrades
-                </Link>
-              </li>
-              <li>
-                <Link href="/shop/magazine-extensions" className="text-zinc-400 hover:text-white text-sm transition-colors">
-                  Magazine Extensions
-                </Link>
-              </li>
-            </ul>
-          </div>
+        {/* Support Links */}
+        <div className="mb-8">
+          <h4 className="text-white font-semibold mb-6 text-sm uppercase tracking-wider text-center">
+            Support
+          </h4>
+          <nav className="flex flex-col md:flex-row md:flex-wrap justify-center items-center gap-4 md:gap-8">
+            <Link href="/contact" className="text-zinc-400 hover:text-white text-sm transition-colors">
+              Contact Us
+            </Link>
+            <Link href="/shipping" className="text-zinc-400 hover:text-white text-sm transition-colors">
+              Shipping Info
+            </Link>
+            <Link href="/returns" className="text-zinc-400 hover:text-white text-sm transition-colors">
+              Returns Policy
+            </Link>
+            <Link href="/faq" className="text-zinc-400 hover:text-white text-sm transition-colors">
+              FAQ
+            </Link>
+            <Link href="/quality" className="text-zinc-400 hover:text-white text-sm transition-colors">
+              Quality Guarantee
+            </Link>
+          </nav>
+        </div>
 
-          {/* By Model Column */}
-          <div>
-            <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">
-              By Model
-            </h4>
-            <ul className="space-y-3">
-              <li>
-                <Link href="/shop/p07" className="text-zinc-400 hover:text-white text-sm transition-colors">
-                  CZ P07
-                </Link>
-              </li>
-              <li>
-                <Link href="/shop/p09" className="text-zinc-400 hover:text-white text-sm transition-colors">
-                  CZ P09
-                </Link>
-              </li>
-              <li>
-                <Link href="/shop/shadow-2" className="text-zinc-400 hover:text-white text-sm transition-colors">
-                  Shadow 2
-                </Link>
-              </li>
-              <li>
-                <Link href="/shop/omega" className="text-zinc-400 hover:text-white text-sm transition-colors">
-                  Omega P01
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Support Column */}
-          <div>
-            <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">
-              Support
-            </h4>
-            <ul className="space-y-3">
-              <li>
-                <Link href="/contact" className="text-zinc-400 hover:text-white text-sm transition-colors">
-                  Contact Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/shipping" className="text-zinc-400 hover:text-white text-sm transition-colors">
-                  Shipping Info
-                </Link>
-              </li>
-              <li>
-                <Link href="/returns" className="text-zinc-400 hover:text-white text-sm transition-colors">
-                  Returns Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/warranty" className="text-zinc-400 hover:text-white text-sm transition-colors">
-                  Warranty
-                </Link>
-              </li>
-              <li>
-                <Link href="/faq" className="text-zinc-400 hover:text-white text-sm transition-colors">
-                  FAQ
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Company Column */}
-          <div>
-            <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">
-              Company
-            </h4>
-            <ul className="space-y-3">
-              <li>
-                <Link href="/about" className="text-zinc-400 hover:text-white text-sm transition-colors">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/quality" className="text-zinc-400 hover:text-white text-sm transition-colors">
-                  Quality Guarantee
-                </Link>
-              </li>
-              <li>
-                <Link href="/compatibility" className="text-zinc-400 hover:text-white text-sm transition-colors">
-                  Compatibility Guide
-                </Link>
-              </li>
-              <li>
-                <Link href="/installation" className="text-zinc-400 hover:text-white text-sm transition-colors">
-                  Installation Guides
-                </Link>
-              </li>
-              <li>
-                <Link href="/dealers" className="text-zinc-400 hover:text-white text-sm transition-colors">
-                  Become a Dealer
-                </Link>
-              </li>
-            </ul>
-          </div>
+        {/* Social Icons */}
+        <div className="flex justify-center gap-3 mb-12">
+          <Link
+            href="https://facebook.com/rushbyindustries"
+            className="w-9 h-9 bg-zinc-900 border border-zinc-800 rounded-lg flex items-center justify-center hover:border-amber-600 hover:bg-zinc-800 transition-colors"
+          >
+            <Facebook className="w-4 h-4 text-zinc-400" />
+          </Link>
+          <Link
+            href="https://instagram.com/rushbyindustries"
+            className="w-9 h-9 bg-zinc-900 border border-zinc-800 rounded-lg flex items-center justify-center hover:border-amber-600 hover:bg-zinc-800 transition-colors"
+          >
+            <Instagram className="w-4 h-4 text-zinc-400" />
+          </Link>
+          <Link
+            href="https://youtube.com/channel/UCDgCnlBaiViGkX_e4pFIGRQ"
+            className="w-9 h-9 bg-zinc-900 border border-zinc-800 rounded-lg flex items-center justify-center hover:border-amber-600 hover:bg-zinc-800 transition-colors"
+          >
+            <Youtube className="w-4 h-4 text-zinc-400" />
+          </Link>
         </div>
 
         {/* Trust Badges */}

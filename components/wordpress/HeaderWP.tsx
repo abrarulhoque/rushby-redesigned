@@ -6,10 +6,13 @@ import { Search, ShoppingCart, User, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { motion, AnimatePresence } from 'framer-motion';
+import SideCart from './SideCart';
+import CurrencySwitcher from './CurrencySwitcher';
 
 export default function HeaderWP() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 bg-gray-700 shadow-md">
@@ -51,6 +54,11 @@ export default function HeaderWP() {
 
           {/* Right Actions */}
           <div className="flex items-center gap-4">
+            {/* Currency Switcher */}
+            <div className="hidden sm:block">
+              <CurrencySwitcher />
+            </div>
+
             {/* Search */}
             <button
               onClick={() => setSearchOpen(!searchOpen)}
@@ -65,12 +73,15 @@ export default function HeaderWP() {
             </Link>
 
             {/* Cart */}
-            <Link href="/cart" className="relative group">
+            <button
+              onClick={() => setCartOpen(true)}
+              className="relative group"
+            >
               <ShoppingCart className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors" />
               <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
-                1
+                3
               </span>
-            </Link>
+            </button>
 
             {/* Mobile Menu Toggle */}
             <button
@@ -132,6 +143,9 @@ export default function HeaderWP() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Side Cart */}
+      <SideCart isOpen={cartOpen} onClose={() => setCartOpen(false)} />
     </header>
   );
 }

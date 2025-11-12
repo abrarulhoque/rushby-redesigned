@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -132,36 +133,37 @@ export default function ProductGridWP() {
         >
           {products.map((product) => (
             <motion.div key={product.id} variants={itemVariants}>
-              <Card className="bg-white border-gray-200 overflow-hidden group hover:shadow-xl transition-all duration-300">
-                {/* Product Image */}
-                <div className="relative aspect-square bg-gray-50 overflow-hidden">
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
+              <Link href={`/product/${product.id}`}>
+                <Card className="bg-white border-gray-200 overflow-hidden group hover:shadow-xl transition-all duration-300 cursor-pointer">
+                  {/* Product Image */}
+                  <div className="relative aspect-square bg-gray-50 overflow-hidden">
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
 
-                  {/* Badge */}
-                  {product.badge && (
-                    <div className="absolute top-3 left-3">
-                      <Badge className="bg-red-600 text-white hover:bg-red-700 font-semibold shadow-lg">
-                        {product.badge}
-                      </Badge>
+                    {/* Badge */}
+                    {product.badge && (
+                      <div className="absolute top-3 left-3">
+                        <Badge className="bg-red-600 text-white hover:bg-red-700 font-semibold shadow-lg">
+                          {product.badge}
+                        </Badge>
+                      </div>
+                    )}
+
+                    {/* Quick View Overlay */}
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <Button className="bg-white text-gray-900 hover:bg-gray-100">
+                        View Product
+                      </Button>
                     </div>
-                  )}
-
-                  {/* Quick View Overlay */}
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <Button className="bg-white text-gray-900 hover:bg-gray-100">
-                      Quick View
-                    </Button>
                   </div>
-                </div>
 
-                {/* Product Info */}
-                <div className="p-5 space-y-3">
+                  {/* Product Info */}
+                  <div className="p-5 space-y-3">
                   {/* Category & Rating */}
                   <div className="flex items-center justify-between text-sm">
                     <span className="text-red-600 font-medium">{product.category}</span>
@@ -188,7 +190,15 @@ export default function ProductGridWP() {
                       <span className="text-2xl font-bold text-gray-900">{product.price}</span>
                       <p className="text-xs text-gray-500">Inclusive of Tax</p>
                     </div>
-                    <Button size="sm" className="bg-red-600 hover:bg-red-700 text-white">
+                    <Button
+                      size="sm"
+                      className="bg-red-600 hover:bg-red-700 text-white"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        // Add to cart logic here
+                      }}
+                    >
                       <ShoppingCart className="w-4 h-4 mr-1" />
                       Add
                     </Button>
@@ -201,6 +211,7 @@ export default function ProductGridWP() {
                   </div>
                 </div>
               </Card>
+              </Link>
             </motion.div>
           ))}
         </motion.div>
